@@ -19,6 +19,8 @@ void Thread::LaunchProcess()
     LongProcess1();
     LongProcess2();
     LongProcess3();
+    LongProcess4();
+    emit UpdateFinal();
 }
 
 void Thread::LongProcess1()
@@ -30,6 +32,7 @@ void Thread::LongProcess1()
         emit UpdateValue(0,max,i);
         i++;
     }
+    emit UpdateIncrementation();
 }
 
 void Thread::LongProcess2()
@@ -41,6 +44,7 @@ void Thread::LongProcess2()
         emit UpdateValue(1,max,i);
         i++;
     }
+    emit UpdateIncrementation();
 }
 
 void Thread::LongProcess3()
@@ -52,5 +56,18 @@ void Thread::LongProcess3()
         emit UpdateValue(2,max,i);
         i++;
     }
+    emit UpdateIncrementation();
+}
+
+void Thread::LongProcess4()
+{
+    int max=80;
+    int i=0;
+    while(i<max)
+    {
+        emit UpdateValue(3,max,i);
+        i++;
+    }
+    emit UpdateIncrementation();
 }
 

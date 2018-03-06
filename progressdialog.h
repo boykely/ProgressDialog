@@ -11,9 +11,12 @@ public:
     void NewInstance();
     void CloseInstance();
     int Segment;
+    int Incrementation;
     double Value;
 public slots:
     void UpdateValue(const int&,const int &,const int&);
+    void UpdateIncrementation();
+    void UpdateFinal();
 };
 
 #endif // PROGRESSDIALOG_H

@@ -2,7 +2,7 @@
 #include <QDebug>
 
 ProgressDialog::ProgressDialog(QWidget *parent):QProgressDialog(parent)
-{
+{    
 }
 
 void ProgressDialog::NewInstance()
@@ -12,6 +12,7 @@ void ProgressDialog::NewInstance()
     setRange(0,100);
     setValue(0);
     Value=value();
+    Incrementation=0;
     setAutoClose(false);
     setAutoReset(false);
     show();
@@ -28,6 +29,15 @@ void ProgressDialog::UpdateValue(const int &_seg,const int & _max,const int &_va
     double ratio=100/Segment;
     double step=ratio/_max;
     Value+=step;
-//    qDebug()<<"actual="<<Value<<endl;
     setValue(Value);
+}
+
+void ProgressDialog::UpdateIncrementation()
+{
+    Incrementation++;
+}
+
+void ProgressDialog::UpdateFinal()
+{
+    setValue(maximum());
 }
